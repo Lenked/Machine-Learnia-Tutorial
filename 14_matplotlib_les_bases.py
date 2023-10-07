@@ -18,6 +18,9 @@ plt.legend()
 plt.show()
 plt.savefig('figure.png')
 
+plt.bar(2, 1000)
+plt.show()
+
 plt.subplot(2, 1, 1)
 plt.plot(x, y, c='red')
 plt.subplot(2, 1, 2)

@@ -33,4 +33,17 @@ plt.show()
 ethereum = pd.read_csv('data_game/ETH-EUR.csv', index_col='Date', parse_dates=True)
 ethereum.loc['2023', 'Close'].plot()
 
-pd.merge(bitcoin, ethereum, on='Date', how='inner', suffixes=('_btc', '_eth'))
+btc_eth = pd.merge(bitcoin, ethereum, on='Date', how='inner', suffixes=('_btc', '_eth'))
+btc_eth[['Close_btc', 'Close_eth']].plot(subplots=True, figsize=(12, 8))
+plt.show()
+
+correlations = btc_eth[['Close_btc', 'Close_eth']].corr()
+
+import seaborn as sns
+sns.heatmap(correlations)
+plt.show()
+
+
+
+
+
